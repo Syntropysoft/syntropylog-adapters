@@ -52,10 +52,7 @@ export class MySQLSerializer implements ISerializer {
     return 'low';
   }
 
-  // ✅ Timeout ultra-bajo: solo para desenmarañar objetos
-  getTimeout(data: any): number | null {
-    return 10; // 10ms máximo para desenmarañar cualquier objeto MySQL
-  }
+
 
   async serialize(data: any, context: SerializationContext): Promise<SerializationResult> {
     const startTime = Date.now();
@@ -77,9 +74,10 @@ export class MySQLSerializer implements ISerializer {
 
       const duration = Date.now() - startTime;
       
-      // ✅ Verificar que la serialización fue ultra-rápida
-      if (duration > 10) {
-        throw new Error(`Serialización lenta: ${duration}ms (máximo 10ms para desenmarañar)`);
+      // ✅ Verificar que la serialización respeta el timeout del contexto
+      const timeout = context.timeout || 50;
+      if (duration > timeout) {
+        throw new Error(`Serialización lenta: ${duration}ms (máximo ${timeout}ms)`);
       }
       
       return {

@@ -25,7 +25,6 @@ export interface ISerializer {
   
   canSerialize(data: any): boolean;
   getComplexity(data: any): 'low' | 'medium' | 'high';
-  getTimeout(data: any): number | null;
   serialize(data: any, context: SerializationContext): Promise<SerializationResult>;
 }
 

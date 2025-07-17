@@ -1,6 +1,6 @@
 {
   "name": "@syntropylog/adapters",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "External adapters for SyntropyLog framework",
   "author": "Gabriel Alejandro Gomez",
   "license": "Apache-2.0",
@@ -72,12 +72,17 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "vitest --run --reporter=verbose",
     "test:coverage": "vitest run --coverage",
-    "prepublishOnly": "npm run build"
+    "test:watch": "vitest --watch",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Syntropysoft/SyntropyLog.git"
+    "url": "git+https://github.com/Syntropysoft/syntropylog-adapters.git"
   },
+  "bugs": {
+    "url": "https://github.com/Syntropysoft/syntropylog-adapters/issues"
+  },
+  "homepage": "https://github.com/Syntropysoft/syntropylog-adapters#readme",
   "publishConfig": {
     "access": "public"
   },
@@ -132,4 +137,4 @@
     "observability",
     "logging"
   ]
-} 
+}

@@ -41,10 +41,7 @@ export class PrismaSerializer implements ISerializer {
     return 'low';
   }
 
-  // ✅ Timeout ultra-bajo: solo para desenmarañar objetos
-  getTimeout(data: any): number | null {
-    return 10; // 10ms máximo para desenmarañar cualquier objeto Prisma
-  }
+
 
   async serialize(data: any, context: SerializationContext): Promise<SerializationResult> {
     const startTime = Date.now();
@@ -64,9 +61,10 @@ export class PrismaSerializer implements ISerializer {
 
       const duration = Date.now() - startTime;
       
-      // ✅ Verificar que la serialización fue ultra-rápida
-      if (duration > 10) {
-        throw new Error(`Serialización lenta: ${duration}ms (máximo 10ms para desenmarañar)`);
+      // ✅ Verificar que la serialización respeta el timeout del contexto
+      const timeout = context.timeout || 50;
+      if (duration > timeout) {
+        throw new Error(`Serialización lenta: ${duration}ms (máximo ${timeout}ms)`);
       }
       
       return {
@@ -142,11 +140,11 @@ export class PrismaSerializer implements ISerializer {
     
     // Basado en argumentos complejos
     if (query.args) {
-      if (query.args.include) complexity += 2;
+      if (query.args.include) complexity += 1;
       if (query.args.select) complexity += 1;
       if (query.args.where && typeof query.args.where === 'object') {
         const whereKeys = Object.keys(query.args.where);
-        complexity += Math.min(whereKeys.length, 3);
+        complexity += Math.min(whereKeys.length, 2);
       }
       if (query.args.orderBy) complexity += 1;
       if (query.args.take) complexity += 1;
@@ -154,8 +152,8 @@ export class PrismaSerializer implements ISerializer {
       if (query.args.distinct) complexity += 1;
     }
     
-    if (complexity >= 6) return 'high';
-    if (complexity >= 3) return 'medium';
+    if (complexity >= 7) return 'high';
+    if (complexity >= 4) return 'medium';
     return 'low';
   }
 
