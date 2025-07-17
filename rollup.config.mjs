@@ -76,6 +76,42 @@ export default [
     external,
     plugins: jsPlugins,
   },
+  // Serializers subpath
+  {
+    input: 'src/serializers/index.ts',
+    output: [
+      {
+        file: 'dist/serializers/index.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/serializers/index.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
+  // Types subpath
+  {
+    input: 'src/types.ts',
+    output: [
+      {
+        file: 'dist/types.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/types.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
   // Type definitions
   {
     input: 'dist/types/index.d.ts',
@@ -90,6 +126,16 @@ export default [
   {
     input: 'dist/types/http/index.d.ts',
     output: [{ file: 'dist/http/index.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/serializers/index.d.ts',
+    output: [{ file: 'dist/serializers/index.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/types.d.ts',
+    output: [{ file: 'dist/types.d.ts', format: 'es' }],
     plugins: [dts()],
   },
 ]; 
