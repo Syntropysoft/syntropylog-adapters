@@ -1,0 +1,135 @@
+{
+  "name": "@syntropylog/adapters",
+  "version": "0.1.0",
+  "description": "External adapters for SyntropyLog framework",
+  "author": "Gabriel Alejandro Gomez",
+  "license": "Apache-2.0",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./brokers": {
+      "import": {
+        "types": "./dist/brokers/index.d.ts",
+        "default": "./dist/brokers/index.mjs"
+      },
+      "require": {
+        "types": "./dist/brokers/index.d.ts",
+        "default": "./dist/brokers/index.cjs"
+      }
+    },
+    "./http": {
+      "import": {
+        "types": "./dist/http/index.d.ts",
+        "default": "./dist/http/index.mjs"
+      },
+      "require": {
+        "types": "./dist/http/index.d.ts",
+        "default": "./dist/http/index.cjs"
+      }
+    },
+    "./serializers": {
+      "import": {
+        "types": "./dist/serializers/index.d.ts",
+        "default": "./dist/serializers/index.mjs"
+      },
+      "require": {
+        "types": "./dist/serializers/index.d.ts",
+        "default": "./dist/serializers/index.cjs"
+      }
+    },
+    "./types": {
+      "import": {
+        "types": "./dist/types.d.ts",
+        "default": "./dist/types.mjs"
+      },
+      "require": {
+        "types": "./dist/types.d.ts",
+        "default": "./dist/types.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:types && rollup -c",
+    "build:types": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "vitest --run --reporter=verbose",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syntropysoft/SyntropyLog.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "syntropylog": "^0.5.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "got": "^12.0.0",
+    "kafkajs": "^2.2.4",
+    "nats": "^2.17.0",
+    "amqplib": "^0.10.8",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/amqplib": "^0.10.4",
+    "@types/node": "^20.10.5",
+    "@types/request": "^2.48.12",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitest/coverage-v8": "^1.1.0",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.5.1",
+    "prettier": "^3.1.1",
+    "rollup": "^4.9.2",
+    "rollup-plugin-dts": "^6.1.0",
+    "typescript": "^5.8.3",
+    "vitest": "^1.1.0"
+  },
+  "keywords": [
+    "syntropylog",
+    "adapters",
+    "serializers",
+    "kafka",
+    "rabbitmq",
+    "nats",
+    "axios",
+    "http",
+    "broker",
+    "prisma",
+    "typeorm",
+    "mysql",
+    "postgresql",
+    "sqlserver",
+    "oracle",
+    "mongodb",
+    "observability",
+    "logging"
+  ]
+} 
