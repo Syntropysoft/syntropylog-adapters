@@ -4,5 +4,4 @@
  */
 
 export { AxiosAdapter } from './AxiosAdapter';
-export { RequestAdapter } from './RequestAdapter';
 export { FetchAdapter } from './FetchAdapter'; 

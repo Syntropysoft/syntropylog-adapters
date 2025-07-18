@@ -17,6 +17,7 @@ const jsPlugins = [
   typescript({ 
     tsconfig: './tsconfig.json',
     sourceMap: true,
+    module: 'ESNext',
   }),
   json(),
 ];
