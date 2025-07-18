@@ -5,5 +5,4 @@
 
 export { AxiosAdapter } from './AxiosAdapter';
 export { RequestAdapter } from './RequestAdapter';
-export { GotAdapter } from './GotAdapter';
 export { FetchAdapter } from './FetchAdapter'; 

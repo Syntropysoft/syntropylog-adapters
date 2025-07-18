@@ -17,7 +17,7 @@ import {
   AdapterHttpResponse,
   IHttpClientAdapter,
   AdapterHttpError,
-} from 'syntropylog/http';
+} from '@syntropylog/types';
 
 /**
  * A helper function to normalize the Axios headers object.

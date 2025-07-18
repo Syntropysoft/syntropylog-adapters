@@ -1,6 +1,6 @@
 import * as amqplib from 'amqplib';
 import type { Connection, Channel, ConsumeMessage, Options } from 'amqplib';
-import { IBrokerAdapter, BrokerMessage, MessageHandler } from 'syntropylog/brokers';
+import { IBrokerAdapter, BrokerMessage, MessageHandler } from '@syntropylog/types';
 
 export class RabbitMQAdapter implements IBrokerAdapter {
   private connection: any = null;

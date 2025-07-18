@@ -4,7 +4,7 @@ import {
   IHttpClientAdapter,
   AdapterHttpRequest,
   AdapterHttpResponse,
-} from 'syntropylog/http';
+} from '@syntropylog/types';
 
 export class FetchAdapter implements IHttpClientAdapter {
   async request<T>(

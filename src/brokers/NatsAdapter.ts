@@ -3,7 +3,7 @@ import {
   IBrokerAdapter,
   BrokerMessage,
   MessageHandler,
-} from 'syntropylog/brokers';
+} from '@syntropylog/types';
 
 export class NatsAdapter implements IBrokerAdapter {
   private readonly natsServers: string[];

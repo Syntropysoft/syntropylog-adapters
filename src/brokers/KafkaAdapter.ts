@@ -8,7 +8,7 @@ import {
   IBrokerAdapter,
   BrokerMessage,
   MessageHandler,
-} from 'syntropylog/brokers';
+} from '@syntropylog/types';
 
 
 /**
