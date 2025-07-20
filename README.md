@@ -12,11 +12,15 @@ External adapters for SyntropyLog framework - Brokers, HTTP clients, and Databas
   <a href="#"><img src="https://img.shields.io/badge/coverage-54.61%25-brightgreen" alt="Test Coverage"></a>
 </p>
 
-> ## 🚀 Version 0.1.9 - Production Ready 🚀
+> ## 🚀 Version 0.1.21 - Production Ready 🚀
 >
 > **@syntropylog/adapters is now production ready with comprehensive test coverage and robust implementations.**
 >
 > All core adapters are fully implemented and tested, providing seamless integration with the main SyntropyLog framework.
+>
+> **Latest fixes:**
+> - ✅ **RabbitMQAdapter**: Fixed exchange durability and consumer cancellation issues
+> - ✅ **Improved stability**: Proper cleanup prevents hanging processes
 
 ## 🚀 Installation
 
@@ -75,7 +79,7 @@ import type { ISerializer, SerializationContext, SerializationResult } from '@sy
 ### Brokers
 - **KafkaAdapter** - Apache Kafka integration ✅ **Tested**
 - **NatsAdapter** - NATS messaging system 🚧 **Implemented, testing pending**
-- **RabbitMQAdapter** - RabbitMQ message broker 🚧 **Implemented, testing pending**
+- **RabbitMQAdapter** - RabbitMQ message broker ✅ **Tested**
 
 ### HTTP Clients
 - **AxiosAdapter** - Axios HTTP client ✅ **Tested**

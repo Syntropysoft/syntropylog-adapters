@@ -23,14 +23,30 @@ export class RabbitMQAdapter implements IBrokerAdapter {
     if (!this.channel) {
       throw new Error('Failed to create RabbitMQ channel');
     }
-    await this.channel.assertExchange(this.exchangeName, 'topic', { durable: false });
+    await this.channel.assertExchange(this.exchangeName, 'topic', { durable: true });
   }
 
   async disconnect(): Promise<void> {
     try {
+        // Cancel all active consumers first
+        if (this.channel && this.consumerTags.size > 0) {
+            for (const [topic, consumerTag] of this.consumerTags) {
+                try {
+                    await this.channel.cancel(consumerTag);
+                    console.log(`✅ Cancelled consumer for topic: ${topic}`);
+                } catch (error) {
+                    console.warn(`⚠️ Error cancelling consumer for topic ${topic}:`, error);
+                }
+            }
+            this.consumerTags.clear();
+        }
+        
+        // Close channel
         if (this.channel) {
             await this.channel.close();
         }
+        
+        // Close connection
         if (this.connection) {
             await this.connection.close();
         }
