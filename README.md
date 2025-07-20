@@ -12,7 +12,7 @@ External adapters for SyntropyLog framework - Brokers, HTTP clients, and Databas
   <a href="#"><img src="https://img.shields.io/badge/coverage-54.61%25-brightgreen" alt="Test Coverage"></a>
 </p>
 
-> ## 🚀 Version 0.1.1 - Production Ready 🚀
+> ## 🚀 Version 0.1.8 - Production Ready 🚀
 >
 > **@syntropylog/adapters is now production ready with comprehensive test coverage and robust implementations.**
 >
@@ -55,7 +55,8 @@ import {
   MySQLSerializer,
   PostgreSQLSerializer,
   SQLServerSerializer,
-  OracleSerializer
+  OracleSerializer,
+  MongoDBSerializer
 } from '@syntropylog/adapters/serializers';
 ```
 
@@ -67,22 +68,23 @@ import type { ISerializer, SerializationContext, SerializationResult } from '@sy
 ## 🔧 Available Adapters
 
 ### Brokers
-- **KafkaAdapter** - Apache Kafka integration
-- **NatsAdapter** - NATS messaging system
-- **RabbitMQAdapter** - RabbitMQ message broker
+- **KafkaAdapter** - Apache Kafka integration ✅
+- **NatsAdapter** - NATS messaging system ✅
+- **RabbitMQAdapter** - RabbitMQ message broker ✅
 
 ### HTTP Clients
-- **AxiosAdapter** - Axios HTTP client
-- **FetchAdapter** - Native fetch API
-- **GotAdapter** - Got HTTP client
+- **AxiosAdapter** - Axios HTTP client ✅
+- **FetchAdapter** - Native fetch API ✅
+- **GotAdapter** - Got HTTP client 🚧 (Planned)
 
 ### Database Serializers
-- **PrismaSerializer** - Prisma ORM queries and errors
-- **TypeORMSerializer** - TypeORM queries and errors
-- **MySQLSerializer** - MySQL queries and errors
-- **PostgreSQLSerializer** - PostgreSQL queries and errors
-- **SQLServerSerializer** - SQL Server queries and errors
-- **OracleSerializer** - Oracle Database queries and errors
+- **PrismaSerializer** - Prisma ORM queries and errors ✅
+- **TypeORMSerializer** - TypeORM queries and errors ✅
+- **MySQLSerializer** - MySQL queries and errors ✅
+- **PostgreSQLSerializer** - PostgreSQL queries and errors ✅
+- **SQLServerSerializer** - SQL Server queries and errors ✅
+- **OracleSerializer** - Oracle Database queries and errors ✅
+- **MongoDBSerializer** - MongoDB queries and errors ✅
 
 ## 🎯 Quick Examples
 
