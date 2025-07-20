@@ -12,7 +12,7 @@ External adapters for SyntropyLog framework - Brokers, HTTP clients, and Databas
   <a href="#"><img src="https://img.shields.io/badge/coverage-54.61%25-brightgreen" alt="Test Coverage"></a>
 </p>
 
-> ## 🚀 Version 0.1.8 - Production Ready 🚀
+> ## 🚀 Version 0.1.9 - Production Ready 🚀
 >
 > **@syntropylog/adapters is now production ready with comprehensive test coverage and robust implementations.**
 >
