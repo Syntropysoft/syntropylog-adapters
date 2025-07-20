@@ -67,24 +67,29 @@ import type { ISerializer, SerializationContext, SerializationResult } from '@sy
 
 ## 🔧 Available Adapters
 
+### Implementation Status
+- ✅ **Tested** - Fully implemented and tested with comprehensive test coverage
+- 🚧 **Implemented, testing pending** - Code implemented but tests not yet written
+- 🚧 **Planned** - Not yet implemented
+
 ### Brokers
-- **KafkaAdapter** - Apache Kafka integration ✅
-- **NatsAdapter** - NATS messaging system ✅
-- **RabbitMQAdapter** - RabbitMQ message broker ✅
+- **KafkaAdapter** - Apache Kafka integration ✅ **Tested**
+- **NatsAdapter** - NATS messaging system 🚧 **Implemented, testing pending**
+- **RabbitMQAdapter** - RabbitMQ message broker 🚧 **Implemented, testing pending**
 
 ### HTTP Clients
-- **AxiosAdapter** - Axios HTTP client ✅
-- **FetchAdapter** - Native fetch API ✅
-- **GotAdapter** - Got HTTP client 🚧 (Planned)
+- **AxiosAdapter** - Axios HTTP client ✅ **Tested**
+- **FetchAdapter** - Native fetch API 🚧 **Implemented, testing pending**
+- **GotAdapter** - Got HTTP client 🚧 **Planned**
 
 ### Database Serializers
-- **PrismaSerializer** - Prisma ORM queries and errors ✅
-- **TypeORMSerializer** - TypeORM queries and errors ✅
-- **MySQLSerializer** - MySQL queries and errors ✅
-- **PostgreSQLSerializer** - PostgreSQL queries and errors ✅
-- **SQLServerSerializer** - SQL Server queries and errors ✅
-- **OracleSerializer** - Oracle Database queries and errors ✅
-- **MongoDBSerializer** - MongoDB queries and errors ✅
+- **PrismaSerializer** - Prisma ORM queries and errors ✅ **Tested**
+- **TypeORMSerializer** - TypeORM queries and errors ✅ **Tested**
+- **MySQLSerializer** - MySQL queries and errors ✅ **Tested**
+- **PostgreSQLSerializer** - PostgreSQL queries and errors ✅ **Tested**
+- **SQLServerSerializer** - SQL Server queries and errors ✅ **Tested**
+- **OracleSerializer** - Oracle Database queries and errors ✅ **Tested**
+- **MongoDBSerializer** - MongoDB queries and errors ✅ **Tested**
 
 ## 🎯 Quick Examples
 
