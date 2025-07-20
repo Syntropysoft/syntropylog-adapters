@@ -24,6 +24,19 @@ export class NatsAdapter implements IBrokerAdapter {
 
   async disconnect(): Promise<void> {
     if (this.natsConnection) {
+      // Unsubscribe from all topics first
+      if (this.subscriptions.size > 0) {
+        for (const [topic, subscription] of this.subscriptions) {
+          try {
+            subscription.unsubscribe();
+            console.log(`✅ Cancelled NATS subscription for topic: ${topic}`);
+          } catch (error) {
+            console.warn(`⚠️ Error cancelling subscription for topic ${topic}:`, error);
+          }
+        }
+        this.subscriptions.clear();
+      }
+      
       await this.natsConnection.drain();
       this.natsConnection.close();
       this.natsConnection = null;
@@ -84,13 +97,29 @@ export class NatsAdapter implements IBrokerAdapter {
     this.subscriptions.set(topic, subscription);
   }
 
+  async unsubscribe(topic: string): Promise<void> {
+    if (!this.natsConnection) {
+      throw new Error('NATS connection is not available.');
+    }
+
+    const subscription = this.subscriptions.get(topic);
+    if (subscription) {
+      subscription.unsubscribe();
+      this.subscriptions.delete(topic);
+      console.log(`✅ Unsubscribed from NATS topic: ${topic}`);
+    } else {
+      console.warn(`No active subscription found for topic: ${topic}`);
+    }
+  }
+
   private natsHeadersToRecord(natsHeaders: any | undefined): Record<string, string | Buffer> | undefined {
     if (!natsHeaders) {
       return undefined;
     }
 
     const record: Record<string, string | Buffer> = {};
-    for (const [key, value] of natsHeaders.entries()) {
+    // NATS headers are iterable but don't have .entries() method
+    for (const [key, value] of natsHeaders) {
       record[key] = value;
     }
     return record;

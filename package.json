@@ -1,6 +1,6 @@
 {
   "name": "@syntropylog/adapters",
-  "version": "0.1.20",
+  "version": "0.1.22",
   "description": "External adapters for SyntropyLog framework",
   "author": "Gabriel Alejandro Gomez",
   "license": "Apache-2.0",
