@@ -5,7 +5,7 @@ Enterprise-grade AWS integration for SyntropyLog observability framework.
 ## 🚀 Quick Start
 
 ```typescript
-import { CloudWatchAdapter, XRayAdapter, S3Adapter } from '@syntropylog/adapters/aws';
+import { CloudWatchAdapter, XRayAdapter, S3Adapter, MQTTAdapter } from '@syntropylog/adapters/aws';
 
 // CloudWatch for centralized logging
 const cloudWatch = new CloudWatchAdapter({
@@ -23,6 +23,12 @@ const xRay = new XRayAdapter({
 const s3 = new S3Adapter({
   client: new S3Client({ region: 'us-east-1' }),
   bucketName: 'my-app-data'
+});
+
+// MQTT for real-time messaging
+const mqtt = new MQTTAdapter({
+  client: new IoTDataPlaneClient({ region: 'us-east-1' }),
+  topicPrefix: 'my-app'
 });
 ```
 
@@ -120,6 +126,15 @@ const s3 = new S3Adapter({
 // Error recovery
 ```
 
+### **MQTT Messaging**
+```typescript
+// Real-time message publishing
+// Topic-based routing
+// QoS support (0, 1, 2)
+// Retained messages
+// Batch publishing
+```
+
 ---
 
 ## 📊 Performance Benchmarks
@@ -149,6 +164,7 @@ npm install @syntropylog/adapters
 import { CloudWatchAdapter } from '@syntropylog/adapters/aws/cloudwatch';
 import { XRayAdapter } from '@syntropylog/adapters/aws/xray';
 import { S3Adapter } from '@syntropylog/adapters/aws/s3';
+import { MQTTAdapter } from '@syntropylog/adapters/aws/mqtt';
 ```
 
 ---

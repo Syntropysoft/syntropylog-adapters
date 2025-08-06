@@ -165,6 +165,23 @@ export default [
     external,
     plugins: jsPlugins,
   },
+  {
+    input: 'src/aws/MQTTAdapter.ts',
+    output: [
+      {
+        file: 'dist/aws/MQTTAdapter.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/aws/MQTTAdapter.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
   // Types subpath
   {
     input: 'src/types.ts',
@@ -222,6 +239,11 @@ export default [
   {
     input: 'dist/types/aws/S3Adapter.d.ts',
     output: [{ file: 'dist/aws/S3Adapter.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/aws/MQTTAdapter.d.ts',
+    output: [{ file: 'dist/aws/MQTTAdapter.d.ts', format: 'es' }],
     plugins: [dts()],
   },
   {

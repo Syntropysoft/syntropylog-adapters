@@ -88,6 +88,16 @@
         "default": "./dist/aws/S3Adapter.cjs"
       }
     },
+    "./aws/mqtt": {
+      "import": {
+        "types": "./dist/aws/MQTTAdapter.d.ts",
+        "default": "./dist/aws/MQTTAdapter.mjs"
+      },
+      "require": {
+        "types": "./dist/aws/MQTTAdapter.d.ts",
+        "default": "./dist/aws/MQTTAdapter.cjs"
+      }
+    },
     "./types": {
       "import": {
         "types": "./dist/types.d.ts",
@@ -127,18 +137,19 @@
     "access": "public"
   },
   "peerDependencies": {
-    "syntropylog": "^0.5.0",
     "@aws-sdk/client-cloudwatch-logs": "^3.0.0",
+    "@aws-sdk/client-iot-data-plane": "^3.859.0",
+    "@aws-sdk/client-s3": "^3.0.0",
     "@aws-sdk/client-xray": "^3.0.0",
-    "@aws-sdk/client-s3": "^3.0.0"
+    "syntropylog": "^0.5.0"
   },
   "dependencies": {
     "@syntropylog/types": "^0.1.4",
+    "amqplib": "^0.10.8",
     "axios": "^1.10.0",
     "got": "^12.0.0",
     "kafkajs": "^2.2.4",
-    "nats": "^2.17.0",
-    "amqplib": "^0.10.8"
+    "nats": "^2.17.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -180,6 +191,8 @@
     "cloudwatch",
     "xray",
     "s3",
+    "mqtt",
+    "iot",
     "observability",
     "logging"
   ]
