@@ -95,6 +95,76 @@ export default [
     external,
     plugins: jsPlugins,
   },
+  // AWS subpath
+  {
+    input: 'src/aws/index.ts',
+    output: [
+      {
+        file: 'dist/aws/index.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/aws/index.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
+  // Individual AWS adapters for tree shaking
+  {
+    input: 'src/aws/CloudWatchAdapter.ts',
+    output: [
+      {
+        file: 'dist/aws/CloudWatchAdapter.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/aws/CloudWatchAdapter.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
+  {
+    input: 'src/aws/XRayAdapter.ts',
+    output: [
+      {
+        file: 'dist/aws/XRayAdapter.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/aws/XRayAdapter.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
+  {
+    input: 'src/aws/S3Adapter.ts',
+    output: [
+      {
+        file: 'dist/aws/S3Adapter.cjs',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/aws/S3Adapter.mjs',
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+    external,
+    plugins: jsPlugins,
+  },
   // Types subpath
   {
     input: 'src/types.ts',
@@ -132,6 +202,26 @@ export default [
   {
     input: 'dist/types/serializers/index.d.ts',
     output: [{ file: 'dist/serializers/index.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/aws/index.d.ts',
+    output: [{ file: 'dist/aws/index.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/aws/CloudWatchAdapter.d.ts',
+    output: [{ file: 'dist/aws/CloudWatchAdapter.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/aws/XRayAdapter.d.ts',
+    output: [{ file: 'dist/aws/XRayAdapter.d.ts', format: 'es' }],
+    plugins: [dts()],
+  },
+  {
+    input: 'dist/types/aws/S3Adapter.d.ts',
+    output: [{ file: 'dist/aws/S3Adapter.d.ts', format: 'es' }],
     plugins: [dts()],
   },
   {

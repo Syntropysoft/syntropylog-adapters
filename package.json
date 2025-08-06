@@ -48,6 +48,46 @@
         "default": "./dist/serializers/index.cjs"
       }
     },
+    "./aws": {
+      "import": {
+        "types": "./dist/aws/index.d.ts",
+        "default": "./dist/aws/index.mjs"
+      },
+      "require": {
+        "types": "./dist/aws/index.d.ts",
+        "default": "./dist/aws/index.cjs"
+      }
+    },
+    "./aws/cloudwatch": {
+      "import": {
+        "types": "./dist/aws/CloudWatchAdapter.d.ts",
+        "default": "./dist/aws/CloudWatchAdapter.mjs"
+      },
+      "require": {
+        "types": "./dist/aws/CloudWatchAdapter.d.ts",
+        "default": "./dist/aws/CloudWatchAdapter.cjs"
+      }
+    },
+    "./aws/xray": {
+      "import": {
+        "types": "./dist/aws/XRayAdapter.d.ts",
+        "default": "./dist/aws/XRayAdapter.mjs"
+      },
+      "require": {
+        "types": "./dist/aws/XRayAdapter.d.ts",
+        "default": "./dist/aws/XRayAdapter.cjs"
+      }
+    },
+    "./aws/s3": {
+      "import": {
+        "types": "./dist/aws/S3Adapter.d.ts",
+        "default": "./dist/aws/S3Adapter.mjs"
+      },
+      "require": {
+        "types": "./dist/aws/S3Adapter.d.ts",
+        "default": "./dist/aws/S3Adapter.cjs"
+      }
+    },
     "./types": {
       "import": {
         "types": "./dist/types.d.ts",
@@ -87,7 +127,10 @@
     "access": "public"
   },
   "peerDependencies": {
-    "syntropylog": "^0.5.0"
+    "syntropylog": "^0.5.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.0.0",
+    "@aws-sdk/client-xray": "^3.0.0",
+    "@aws-sdk/client-s3": "^3.0.0"
   },
   "dependencies": {
     "@syntropylog/types": "^0.1.4",
@@ -133,6 +176,10 @@
     "sqlserver",
     "oracle",
     "mongodb",
+    "aws",
+    "cloudwatch",
+    "xray",
+    "s3",
     "observability",
     "logging"
   ]

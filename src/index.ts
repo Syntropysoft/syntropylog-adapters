@@ -10,4 +10,7 @@ export * from './brokers';
 export * from './http';
 
 // Export all database serializers
-export * from './serializers'; 
+export * from './serializers';
+
+// Export all AWS adapters
+export * from './aws'; 
