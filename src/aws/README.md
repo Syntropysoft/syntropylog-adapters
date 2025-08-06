@@ -48,7 +48,7 @@ const s3 = new S3Adapter({
 
 ### **Net ROI: +$3,160/year** 🎉
 
-*"SyntropyLog se paga solo desde el primer año!"*
+*"SyntropyLog pays for itself from the first year!"*
 
 ---
 
@@ -169,16 +169,16 @@ import { S3Adapter } from '@syntropylog/adapters/aws/s3';
 
 ## 🤝 Why Choose SyntropyLog?
 
-1. **"Cost Effective"** - Se paga solo desde el primer año
-2. **"Professional Support"** - Mentoring continuo y guidance
-3. **"Custom Solutions"** - Adaptadores específicos para tu stack
-4. **"Comprehensive Training"** - 3 días de training intensivo
-5. **"Ongoing Partnership"** - Estamos aquí para tu éxito
+1. **"Cost Effective"** - Pays for itself from the first year
+2. **"Professional Support"** - Continuous mentoring and guidance
+3. **"Custom Solutions"** - Specific adapters for your stack
+4. **"Comprehensive Training"** - 3 days of intensive training
+5. **"Ongoing Partnership"** - We're here for your success
 
-*"SyntropyLog: Porque tu tiempo vale más que tu dinero"* 🚀
+*"SyntropyLog: Because your time is worth more than your money"* 🚀
 
 ---
 
 ## 📄 License
 
-Apache 2.0 - *"La herramienta es gratis, pero la expertise cuesta"* 
+Apache 2.0 - *"The tool is free, but the expertise costs"* 
